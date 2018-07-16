@@ -15,6 +15,8 @@ if a == acc and p == pas:
 	print('*'*50)
 	hero = input('请选择英雄z：后裔 x：吕布 c：貂蝉 v：鲁班：')
 	if hero == 'z' or hero == 'x' or hero == 'c' or hero == 'v':
+		if  name == z:
+			print('您选择的英雄是：%s'%(name))	
 		print('进入游戏')
 	else:
 		print('没有此英雄')
