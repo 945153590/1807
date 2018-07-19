@@ -1,0 +1,10 @@
+list = ['未来','过去','金星','水星','火星','木星']
+print(list)
+list.reverse()
+print(list)
+list.reverse()
+print(list)
+list.sort(reverse=True)
+print(list)
+list.sort()
+print(list)
