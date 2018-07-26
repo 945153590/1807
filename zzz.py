@@ -124,18 +124,12 @@ def change():
 						else:
 							isError('书号')
 					print('修改成功')
-		else:
-			print('没有此书')
-			break
 def find():
 	bookname()
 	name = input('请输入书名：')
 	for d in list:
 		if d['book_name'] == name:
 			print('书名： %s\n作者： %s\n价目： %s\n书号： %s'%(d['book_name'],d['name'],d['price'],d['book_num']))
-			break
-		else:
-			print('没找到')
 			break
 
 def delete():
@@ -145,9 +139,6 @@ def delete():
 		if d['book_name'] == name:
 			list.remove(d)
 			print('删除成功')
-			break
-		else:
-			print('删除失败')
 			break
 
 def print_book():
