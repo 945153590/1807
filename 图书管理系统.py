@@ -16,13 +16,9 @@ def isNum(num):#判断是否为纯数字
 def isError(msg):
 	print(msg+'格式有误，请重新输入！')
 
-def bookname():
-	for d in list:
-		print(d['book_name'])
-
 def login():#登录界面
 	print('*'*50)
-	print('欢迎来到图书管理系统'.center(40,' '))#center居中左右空格补冲
+	print('欢迎来到图书管理系统'.center(40,' '))#center居中左右空格补充
 	for i in range(3):
 		acc = input('请输入账号：'.rjust(21,' '))
 		pas = input('请输入密码：'.rjust(21,' '))
@@ -46,6 +42,31 @@ def showMenu():#功能菜单
 	print('5:打  印  图  书'.center(46,' '))
 	fenge()
 	input_info()
+
+def input_info():#功能选择
+	while True:
+		num = input('请选择功能：')
+		if isNum(num):
+			num = int(num)
+		else:
+			print('非法操作')
+		if num == 1:
+			add()
+		elif num == 2:
+			change()
+			#pass
+		elif num == 3:
+			find()
+			#pass
+		elif num == 4:
+			delete()
+			#pass
+		elif num == 5:
+			print_book()
+			#pass
+		elif num == 0:
+			print('谢谢使用！\n欢迎下次光临！')
+			exit()
 
 def add():
 	d = {}#空字典存图书信息
@@ -82,12 +103,6 @@ def add():
 	print(list)
 	fenge()
 
-def change_menu():#修改功能菜单
-	print('0:返回菜单\n1:修改书名\n2:修改作者\n3:修改价目\n4:修改日期\n5:修改书号')
-
-def cg():
-	print('修改成功')
-
 def change():
 	bookname()
 	name = input('请输入书名：')
@@ -113,7 +128,7 @@ def change():
 							price = input('请输入新的价目：')
 							if isNum(price):
 								price = float(price)
-								d['prcie'] = price
+								d['price'] = price
 								cg()
 								break
 							else:
@@ -140,6 +155,12 @@ def change():
 								isError('书号')
 					fenge()
 
+def change_menu():#修改功能菜单
+	print('0:返回菜单\n1:修改书名\n2:修改作者\n3:修改价目\n4:修改日期\n5:修改书号')
+
+def cg():
+	print('修改成功')
+
 def find():
 	bookname()
 	name = input('请输入书名：')
@@ -157,41 +178,21 @@ def delete():
 			list.remove(d)
 			print('删除成功')
 			break
+def bookname():
+	for d in list:
+		print(d['book_name'])
 
 def print_book():
-	print('书名        作者        价目        日期         书号         ')
+	print('书名         作者         价目         日期          书号          ')
 	for d in list:
-		print(d['book_name'],end = '        ')
-		print(d['name'],end = '        ')
-		print(d['price'],end = '        ')
-		print(d['date'],end = '        ')
-		print(d['book_num'],end = '        ')
+		print(d['book_name'],end = '         ')
+		print(d['name'],end = '         ')
+		print(d['price'],end = '         ')
+		print(d['date'],end = '         ')
+		print(d['book_num'],end = '         ')
 		print('')
-		fenge()
+	fenge()
 
-def input_info():#功能选择
-	while True:
-		num = input('请选择功能：')
-		if isNum(num):
-			num = int(num)
-		else:
-			print('非法操作')
-		if num == 1:
-			add()
-		elif num == 2:
-			change()
-			#pass
-		elif num == 3:
-			find()
-			#pass
-		elif num == 4:
-			delete()
-			#pass
-		elif num == 5:
-			print_book()
-			#pass
-		elif num == 0:
-			print('谢谢使用！\n欢迎下次光临！')
-			exit()
+
 
 login()
