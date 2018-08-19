@@ -8,8 +8,20 @@ def add():
 	d['sex'] = sex
 	d['age'] = age
 	list.append(d)
+	savecard()
+	readcard()
 def savecard():
-	pass
+	f = open('card.data','w')
+	f.write(str(list))
+	f.close()
 def readcard():
-	pass
+	f = open('card.data','r')
+	content = f.read()
+	if len(content) != 0:
+		list = eval(content)
+	for i in list:
+		for k,v in i.items():
+			print(k,v)
+	print(list)
+	f.close()
 add()
